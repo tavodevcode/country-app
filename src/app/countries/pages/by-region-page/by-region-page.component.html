@@ -1,0 +1,23 @@
+<section class="py-10">
+  <countries-title title="Paises por region"></countries-title>
+
+  <div class="w-full justify-evenly flex gap-2">
+    <button
+      *ngFor="let region of regions"
+      class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+      (click)="searchByRegion(region)"
+      [ngClass]="{ 'text-white': selectedRegion === region }"
+    >
+      <span
+        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+        [ngClass]="{ 'bg-opacity-0': selectedRegion === region }"
+      >
+        {{ region }}
+      </span>
+    </button>
+  </div>
+
+  <!-- <shared-search-box placeholder="Buscar por region" (onDebounce)="searchByRegion($event)"></shared-search-box> -->
+
+  <countries-country-table [countries]="countries" class="w-full h-auto flex"></countries-country-table>
+</section>
