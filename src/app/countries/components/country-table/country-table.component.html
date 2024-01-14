@@ -1,0 +1,54 @@
+<section class="w-full h-auto flex justify-center items-center mt-10">
+  <div *ngIf="countries.length === 0; else table">
+    <p class="">No hay resultados</p>
+  </div>
+</section>
+
+<ng-template #table>
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-md shadow-sm overflow-y-scroll"
+  >
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">#</th>
+        <th scope="col" class="px-6 py-3">Icono</th>
+        <th scope="col" class="px-6 py-3">Bandera</th>
+        <th scope="col" class="px-6 py-3">Nombre</th>
+        <th scope="col" class="px-6 py-3">Ca-pital</th>
+        <th scope="col" class="px-6 py-3">Poblacion</th>
+        <th scope="col" class="px-6 py-3">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let country of countries; let i = index"
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <td class="px-6 py-4">{{ i + 1 }}</td>
+        <td class="px-6 py-4">
+          {{ country.flag }}
+        </td>
+        <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+          <img class="w-[60px] h-[40px]" [src]="country.flags.svg" alt="Jese image" />
+        </th>
+        <td class="px-6 py-4">
+          {{ country.name.common }}
+        </td>
+        <td class="px-6 py-4">
+          {{ country.capital }}
+        </td>
+        <td class="px-6 py-4">
+          {{ country.population | number }}
+        </td>
+        <td class="px-6 py-4">
+          <a
+            [routerLink]="['/countries/by', country.ccn3]"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            Info
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
