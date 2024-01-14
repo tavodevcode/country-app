@@ -1,0 +1,11 @@
+<section class="py-10">
+  <countries-title title="Paises por pais"></countries-title>
+
+  <shared-search-box
+    placeholder="Buscar por pais"
+    [initialSearch]="initialSearch"
+    (onDebounce)="searchCountry($event)"
+  ></shared-search-box>
+
+  <countries-country-table [countries]="countries" class="w-full h-auto flex"></countries-country-table>
+</section>

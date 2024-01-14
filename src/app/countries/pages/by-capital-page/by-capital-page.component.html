@@ -1,0 +1,13 @@
+<section class="py-10">
+  <countries-title title="Paises por capital"></countries-title>
+
+  <shared-search-box
+    placeholder="Buscar por capital"
+    [initialSearch]="initialSearch"
+    (onDebounce)="searchByCapital($event)"
+  ></shared-search-box>
+
+  <countries-country-table [countries]="countries" class="w-full h-auto flex"></countries-country-table>
+
+  <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+</section>
