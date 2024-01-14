@@ -1,0 +1,70 @@
+<ng-template #loading>
+  <div class="flex w-full h-full justify-center items-center">
+    <span class="visually-hidden">Espere porfavor...</span>
+  </div>
+</ng-template>
+
+<section class="" *ngIf="country; else loading">
+  <countries-title [title]="'Pais: ' + country.name.common"></countries-title>
+
+  <div class="flex">
+    <div class="w-1/2">
+      <h3 class="mb-4 font-semibold opacity-80">Bandera</h3>
+      <img [src]="country.flags.svg" [alt]="country.name.common" class="w-1/2 shadow-xl rounded-sm" />
+    </div>
+
+    <div class="w-1/2">
+      <h3 class="mb-4 font-semibold opacity-80">Informacio</h3>
+
+      <p class="font-semibold mb-3">
+        Poblacion: <span class="font-normal">{{ country.population | number }}</span>
+      </p>
+
+      <p class="font-semibold mb-3">
+        Codigo: <span class="font-normal">{{ country.cca3 }}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h3 class="mb-4 font-semibold opacity-80">Traducciones</h3>
+
+    <div class="flex">
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['ara'].common }}
+      </span>
+
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['bre'].common }}
+      </span>
+
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['ces'].common }}
+      </span>
+
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['jpn'].common }}
+      </span>
+
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['deu'].common }}
+      </span>
+
+      <span
+        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ country.translations['est'].common }}
+      </span>
+    </div>
+  </div>
+</section>
